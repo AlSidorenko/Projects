@@ -31,17 +31,6 @@ public class CoffeeMachineTest {
     @Test
     public void secondCondition() {
         CoffeeMachine coffeeMachine = new CoffeeMachine();
-        int[] result = coffeeMachine.changes(100, 35);
-        int[] expected = {10, 10, 10, 10, 10, 10, 5};
-        assertThat(expected, is(result));
-    }
-
-    /**
-     * Third condition.
-     */
-    @Test
-    public void thirdCondition() {
-        CoffeeMachine coffeeMachine = new CoffeeMachine();
         int[] result = coffeeMachine.changes(50, 37);
         int[] expected = {10, 2, 1};
         assertThat(expected, is(result));
