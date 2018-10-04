@@ -20,16 +20,7 @@ public class Departments {
      * @return - sort list.
      */
     public ArrayList<String> sortNatural(ArrayList<String> list) {
-        checker(list);
-        list.sort(
-                new Comparator<String>() {
-                    @Override
-                    public int compare(String o1, String o2) {
-                        return o1.compareTo(o2);
-                    }
-                }
-        );
-        return list;
+        return checker(list);
     }
 
     /**
@@ -68,8 +59,7 @@ public class Departments {
      * @param list - input list.
      * @return - Full List.
      */
-    public TreeSet<String> checker(ArrayList<String> list) {
-        TreeSet<String> res = new TreeSet<>();
+    public ArrayList<String> checker(ArrayList<String> list) {
         for (int i = 0; i < list.size(); i++) {
             String[] separated = list.get(i).split("\\\\");
             if (separated.length > 1) {
@@ -79,10 +69,10 @@ public class Departments {
                         list.add(temp);
                     }
                     temp += "\\" + separated[j];
-                    res.add(temp);
                 }
             }
         }
-        return res;
+        TreeSet<String> res = new TreeSet<>(list);
+        return new ArrayList<>(res);
     }
 }
